@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface CrudService<T, U> {
 
-    T save(U u);
+    T save(T t);
 
     T findById(U u);
 
