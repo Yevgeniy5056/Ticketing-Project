@@ -116,7 +116,8 @@
                                                     <label>Choose a Role</label>
                                                     <select th:field="*{role}" name="role" class="custom-select">
                                                         <option th:value="''" th:text="Select"></option>
-                                                        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
+                                                        <option th:each="role : ${roles}" th:value="${role.id}"
+                                                                th:text="${role.description}"></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -170,7 +171,7 @@
                                             <tbody>
 
                                             <tr th:each="user : ${users}">
-                                                <td th:text="${user.firstName}"></td>
+                                                <td th:text="${user.firstName + ' ' + user.lastName}"></td>
                                                 <td th:text="${user.userName}"></td>
                                                 <td th:text="${user.gender.value}"></td>
                                                 <td th:text="${user.phone}"></td>
