@@ -25,4 +25,8 @@ public abstract class AbstractMapService<T, U> {
     void deleteById(U id) {
         map.remove(id);
     }
+
+    void update(U id, T object) {
+        map.put(id, object);
+    }
 }
