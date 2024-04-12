@@ -1,6 +1,7 @@
 package com.cydeo.controller;
 
 import com.cydeo.dto.ProjectDTO;
+import com.cydeo.enums.Status;
 import com.cydeo.service.ProjectService;
 import com.cydeo.service.UserService;
 import lombok.AllArgsConstructor;
@@ -24,5 +25,12 @@ public class ProjectController {
         model.addAttribute("projects", projectService.findAll());
 
         return "/project/create";
+    }
+    @PostMapping("/create")
+    public String insertProject(@ModelAttribute("project") ProjectDTO project) {
+
+        projectService.save(project);
+
+        return "redirect:/project/create";
     }
 }
