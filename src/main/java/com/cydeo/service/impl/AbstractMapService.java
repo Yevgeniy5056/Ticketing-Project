@@ -9,8 +9,8 @@ public abstract class AbstractMapService<T, U> {
 
     public Map<U, T> map = new HashMap<>();
 
-    T save(U id, T object) {
-        map.put(id, object);
+    T save(U unique, T object) {
+        map.put(unique, object);
         return object;
     }
 
@@ -18,15 +18,15 @@ public abstract class AbstractMapService<T, U> {
         return new ArrayList<>(map.values());
     }
 
-    T findById(U id) {
-        return map.get(id);
+    T findById(U unique) {
+        return map.get(unique);
     }
 
-    void deleteById(U id) {
-        map.remove(id);
+    void deleteById(U unique) {
+        map.remove(unique);
     }
 
-    void update(U id, T object) {
-        map.put(id, object);
+    void update(U unique, T object) {
+        map.put(unique, object);
     }
 }
