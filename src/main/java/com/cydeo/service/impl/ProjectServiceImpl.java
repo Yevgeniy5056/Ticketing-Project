@@ -29,7 +29,7 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO, String> i
     }
 
     @Override
-    public void delete(String projectCode) {
+    public void deleteById(String projectCode) {
         super.deleteById(projectCode);
     }
 
