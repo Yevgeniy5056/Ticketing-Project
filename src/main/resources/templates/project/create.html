@@ -141,7 +141,7 @@
                                             <tr th:each="project : ${projects}">
                                                 <td th:text="${project.projectCode}"></td>
                                                 <td th:text="${project.projectName}">></td>
-                                                <td th:text="${project.projectStartDate + ' ' + project.projectEndDate}"></td>
+                                                <td th:text="${#temporals.format(project.projectStartDate,'MM.dd.yyyy') + '-' + #temporals.format(project.projectEndDate,'MM.dd.yyyy')}"></td>
                                                 <td th:text="${project.assignManager.firstName + ' ' + project.assignManager.lastName}"></td>
                                                 <td th:text="${project.projectStatus.value}"></td>
                                                 <td>
