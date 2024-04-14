@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -35,6 +36,14 @@ public class TaskController {
     public String insertTask(TaskDTO task, Model model) {
 
         taskService.save(task);
+
+        return "redirect:/task/create";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteTask(@PathVariable Long id, Model model) {
+
+        taskService.deleteById(id);
 
         return "redirect:/task/create";
     }
