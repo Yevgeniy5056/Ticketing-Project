@@ -58,7 +58,7 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO, String> i
     public List<ProjectDTO> getCountedListOfProjectDTO(UserDTO manager) {
         return findAll().stream()
                 .filter(project -> project.getAssignManager().equals(manager))
-                .map(project -> {
+                .peek(project -> {
 
                     List<TaskDTO> taskList = taskService.findTasksByManager(manager);
 
@@ -73,7 +73,6 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO, String> i
                     project.setCompleteTaskCounts(completedTaskCounts);
                     project.setUnfinishedTaskCounts(unfinishedTaskCounts);
 
-                    return project;
                 })
                 .collect(Collectors.toList());
     }
