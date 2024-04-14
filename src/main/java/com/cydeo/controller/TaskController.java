@@ -25,6 +25,8 @@ public class TaskController {
         model.addAttribute("task", new TaskDTO());
         model.addAttribute("projects", projectService.findAll());
         model.addAttribute("employees", userService.findEmployee());
+        model.addAttribute("tasks", taskService.findAll());
+
         return "task/create";
     }
 }
