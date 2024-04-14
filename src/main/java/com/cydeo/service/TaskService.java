@@ -1,6 +1,11 @@
 package com.cydeo.service;
 
 import com.cydeo.dto.TaskDTO;
+import com.cydeo.dto.UserDTO;
 
-public interface TaskService extends CrudService<TaskDTO,Long>{
+import java.util.List;
+
+public interface TaskService extends CrudService<TaskDTO, Long> {
+
+    List<TaskDTO> findTasksByManager(UserDTO manager);
 }
